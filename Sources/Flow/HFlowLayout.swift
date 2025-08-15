@@ -2,6 +2,7 @@ import SwiftUI
 
 /// A layout that arranges its children in a horizontally flowing manner.
 @frozen
+@available(iOS 16, macOS 13, *)
 public struct HFlowLayout: Sendable {
     @usableFromInline
     let layout: FlowLayout
@@ -68,6 +69,7 @@ public struct HFlowLayout: Sendable {
     }
 }
 
+@available(iOS 16, macOS 13, *)
 extension HFlowLayout: Layout {
     @inlinable
     public func sizeThatFits(proposal: ProposedViewSize, subviews: LayoutSubviews, cache: inout FlowLayoutCache) -> CGSize {

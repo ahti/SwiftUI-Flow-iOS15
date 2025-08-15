@@ -13,6 +13,7 @@ public enum FlexibilityBehavior: Sendable {
 /// Cache to store certain properties of subviews in the layout (flexibility, spacing preferences, layout priority).
 /// Even though it needs to be public (because it's part of the layout protocol conformance),
 /// it's considered an internal implementation detail.
+@available(iOS 16, macOS 13, *)
 public struct FlowLayoutCache {
     @usableFromInline
     struct SubviewCache {
@@ -60,10 +61,10 @@ public struct FlowLayoutCache {
         }
     }
 
-    @usableFromInline 
+    @usableFromInline
     let subviewsCache: [SubviewCache]
 
-    @inlinable 
+    @inlinable
     init(_ subviews: some Subviews, axis: Axis) {
         subviewsCache = subviews.map {
             SubviewCache($0, axis: axis)
@@ -72,6 +73,7 @@ public struct FlowLayoutCache {
 }
 
 /// A view to manually insert breaks into flow layout, allowing precise control over line breaking.
+@available(iOS 16, macOS 13, *)
 public struct LineBreak: View {
     /// Initializes a new line break view
     public init() {}
@@ -83,6 +85,7 @@ public struct LineBreak: View {
     }
 }
 
+@available(iOS 16, macOS 13, *)
 extension View {
     /// Allows flow layout elements to be started on new lines, allowing precise control over line breaking.
     public func startInNewLine(_ enabled: Bool = true) -> some View {

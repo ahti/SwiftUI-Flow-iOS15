@@ -19,6 +19,7 @@ import SwiftUI
 ///     }
 ///
 @frozen
+@available(iOS 16, macOS 13, *)
 public struct VFlow<Content: View>: View {
     @usableFromInline
     let layout: VFlowLayout
@@ -135,10 +136,12 @@ public struct VFlow<Content: View>: View {
     }
 }
 
+@available(iOS 16, macOS 13, *)
 extension VFlow: Animatable where Content == EmptyView {
     public typealias AnimatableData = EmptyAnimatableData
 }
 
+@available(iOS 16, macOS 13, *)
 extension VFlow: Layout, Sendable where Content == EmptyView {
     /// Creates a vertical flow with the given spacing and horizontal alignment.
     ///
